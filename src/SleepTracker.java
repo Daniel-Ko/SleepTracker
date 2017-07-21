@@ -37,11 +37,14 @@ public class SleepTracker {
     public void addWakeTime() {
         //add user inputted wake time to an existing date
         NightData data = sleepDataByDate.get(LocalDate.of(5, 5, 5));
-
     }
 
     public void drawGraph() {
+        //AXES: 1-4, everyday. 14-28, every 2 days. 28-56, every week. 65-1 year, every month. 1 yr +, every year.
 
+        //BAR, SCATTER, LINE
+
+        //need a graphics object g
     }
 
 }
