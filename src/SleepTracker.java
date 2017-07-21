@@ -1,19 +1,19 @@
+import java.awt.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by Dan Ko on 7/16/2017.
  */
 public class SleepTracker {
-    private List<NightData> nights;
     private Map<LocalDate, NightData> sleepDataByDate;
 
     public SleepTracker() {
-        nights = new ArrayList<>();
         sleepDataByDate = new HashMap<>();
     }
 
@@ -28,7 +28,7 @@ public class SleepTracker {
         //when click button to add (or maybe a text bar?)
         sleep = LocalTime.of(4, 4, 4);
 
-        nights.add(new NightData(sleep, date));
+        sleepDataByDate.put(date, new NightData(sleep, date));
     }
 
     /** Find the NightData object existing which maps to the relevant date, and add a wake time to it. Doing this will create a time period in the NightData object
@@ -39,12 +39,22 @@ public class SleepTracker {
         NightData data = sleepDataByDate.get(LocalDate.of(5, 5, 5));
     }
 
-    public void drawGraph() {
+    public void drawGraph(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
         //AXES: 1-4, everyday. 14-28, every 2 days. 28-56, every week. 65-1 year, every month. 1 yr +, every year.
 
         //BAR, SCATTER, LINE
 
         //need a graphics object g
+
+        List<LocalDate> nights = sleepDataByDate.keySet()
+                .stream()
+                .sorted() //LocalDate implements comparable
+                .collect(Collectors.toList());
+
+        for(LocalDate date : nights) {
+            sleepDataByDate.get(date); //draw this on component
+        }
     }
 
 }

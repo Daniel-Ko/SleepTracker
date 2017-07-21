@@ -61,7 +61,7 @@ public class NightData {
     public String toString() {
         String s =  LocalDateTime.of(date, sleep).toString();
         s += "\n" + LocalDateTime.of(date, wake).toString();
-        if(sleepDur != null) s+= ("\nSlept for " + sleepDur)
+        if(sleepDur != null) s+= ("\nSlept for " + sleepDur);
         return s;
     }
 }
