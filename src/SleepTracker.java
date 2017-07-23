@@ -23,10 +23,10 @@ public class SleepTracker {
      */
     public void addSleepTime(LocalDate date) {
         //get user inputted and sleep time
-        LocalTime sleep = LocalTime.of(4, 4, 4);
-
+        LocalTime sleep;
+    
         //when click button to add (or maybe a text bar?)
-        sleep = LocalTime.of(4, 4, 4);
+        sleep = LocalTime.of(4, 4, 4); //change to user-inputted values
 
         sleepDataByDate.put(date, new NightData(sleep, date));
     }
@@ -36,7 +36,7 @@ public class SleepTracker {
      */
     public void addWakeTime() {
         //add user inputted wake time to an existing date
-        NightData data = sleepDataByDate.get(LocalDate.of(5, 5, 5));
+        NightData data = sleepDataByDate.get(LocalDate.of(5, 5, 5)); //change to user-inputted values
     }
 
     public void drawGraph(Graphics g) {

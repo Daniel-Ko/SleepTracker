@@ -12,7 +12,7 @@ public class GUI {
 
     private JTabbedPane tabbedPane1;
     private JPanel Superform;
-
+    
     private JComponent drawing;
 
     public GUI() {
